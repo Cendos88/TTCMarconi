@@ -1,6 +1,6 @@
 public class ArgsValidator {
     public static String selectInput(String[] args) {
-        String input= "File";
+        String input = "File";
         if (args[0].matches("[0-9]+")) {
             input = "StdIn";
             return input;

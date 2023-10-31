@@ -6,26 +6,23 @@ public class AppService {
     private final String input;
     private final String output;
 
-    public AppService(String [] args) {
+    public AppService(String[] args) {
         this.input = ArgsValidator.selectInput(args);
         this.output = ArgsValidator.selectOutput(args);
     }
 
     public void execute(String[] args) throws IOException {
         List<Integer> numbers = new ArrayList<>();
-        if(this.input.equals("StdIn")){
+        if (this.input.equals("StdIn")) {
             numbers = ReadWriteService.readFromInput();
+        } else {
+            numbers = ReadWriteService.readFromFile(args[0]);
         }
-        else{
-             numbers = ReadWriteService.readFromFile(args[0]);
-        }
-        if(this.output.equals("StdOut")){
+        if (this.output.equals("StdOut")) {
             ReadWriteService.writeToOutput(numbers);
-        }
-        else {
+        } else {
             ReadWriteService.writeToFile(numbers);
         }
-
 
 
     }
