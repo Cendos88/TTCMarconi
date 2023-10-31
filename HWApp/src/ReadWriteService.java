@@ -21,8 +21,8 @@ public class ReadWriteService {
         System.out.println(numbers);
     }
 
-    public static void writeToFile(List<Integer> numbers) throws IOException {
-        Files.writeString(Paths.get("output.txt"), numbers.toString());
+    public static void writeToFile(List<Integer> numbers, String filePath) throws IOException {
+        Files.writeString(Paths.get(filePath), numbers.toString());
     }
 
 

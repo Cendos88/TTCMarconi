@@ -21,7 +21,7 @@ public class AppService {
         if (this.output.equals(Output.STDOUT)) {
             ReadWriteService.writeToStdOut(numbers);
         } else {
-            ReadWriteService.writeToFile(numbers);
+            ReadWriteService.writeToFile(numbers, args[1]);
         }
 
 
