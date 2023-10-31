@@ -1,25 +1,32 @@
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class AppService {
-    public static List<Integer> readFromInput(){
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        System.out.println(input);
-        return null;
+    private final String input;
+    private final String output;
+
+    public AppService(String [] args) {
+        this.input = ArgsValidator.selectInput(args);
+        this.output = ArgsValidator.selectOutput(args);
     }
-    public static List<Integer> readFromFile(String filePath) throws IOException {
-        Files.readString(Paths.get(filePath));
-        System.out.println(Files.readString(Paths.get(filePath)));
-        return null;
-    }
-    public static void writeToOutput(List<Integer> numbers){
-        System.out.println(numbers);
-    }
-    public static  void writeToFile(List<Integer> numbers){
+
+    public void execute(String[] args) throws IOException {
+        List<Integer> numbers = new ArrayList<>();
+        if(this.input.equals("StdIn")){
+            numbers = ReadWriteService.readFromInput();
+        }
+        else{
+             numbers = ReadWriteService.readFromFile(args[0]);
+        }
+        if(this.output.equals("StdOut")){
+            ReadWriteService.writeToOutput(numbers);
+        }
+        else {
+            ReadWriteService.writeToFile(numbers);
+        }
+
+
 
     }
 
