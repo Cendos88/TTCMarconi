@@ -9,7 +9,7 @@ public class InputService {
             try {
                 numbers.add(Integer.parseInt(s));
             } catch (NumberFormatException e) {
-                System.out.println("Wrong input format. Use ; as a separator");
+                System.out.println("Wrong input format. Use numbers separated by semicolon as a separator");
             }
 
         }

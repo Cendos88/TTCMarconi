@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ReadWriteService {
-    public static List<Integer> readFromInput() {
+    public static List<Integer> readFromStdIn() {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         return InputService.chooseNumbers(input);
@@ -17,7 +17,7 @@ public class ReadWriteService {
         return InputService.chooseNumbers(input);
     }
 
-    public static void writeToOutput(List<Integer> numbers) {
+    public static void writeToStdOut(List<Integer> numbers) {
         System.out.println(numbers);
     }
 

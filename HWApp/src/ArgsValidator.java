@@ -1,17 +1,17 @@
 public class ArgsValidator {
-    public static String selectInput(String[] args) {
-        String input = "File";
+    public static Input selectInput(String[] args) {
+        Input input = Input.FILE;
         if (args[0].matches("[0-9]+")) {
-            input = "StdIn";
+            input = Input.STDIN;
             return input;
         }
         return input;
     }
 
-    public static String selectOutput(String[] args) {
-        String output = "File";
+    public static Output selectOutput(String[] args) {
+         Output output = Output.FILE;
         if (args.length == 1) {
-            output = "StdOut";
+            output = Output.STDOUT;
             return output;
         }
         return output;
