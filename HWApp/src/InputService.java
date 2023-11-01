@@ -3,13 +3,13 @@ import java.util.List;
 
 public class InputService {
     private static List<Integer> validateInput(String input) {
-        String[] inputArray = input.trim().split(";");
+        String[] inputArray = input.trim().split(" ");
         List<Integer> numbers = new ArrayList<>();
         for (String s : inputArray) {
             try {
                 numbers.add(Integer.parseInt(s));
             } catch (NumberFormatException e) {
-                System.out.println("Wrong input format. Use numbers separated by semicolon as a separator");
+                System.out.println("Wrong input format. Use numbers separated by ' ' ");
             }
 
         }
