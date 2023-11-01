@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ReadWriteService {
-    public static List<Integer> readFromStdIn() {
+    public static List<Integer> readFromStdIn() throws AppException {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         return InputService.chooseNumbers(input);
