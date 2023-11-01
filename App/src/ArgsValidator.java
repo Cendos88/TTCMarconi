@@ -9,7 +9,7 @@ public class ArgsValidator {
     }
 
     public static Output selectOutput(String[] args) {
-         Output output = Output.FILE;
+        Output output = Output.FILE;
         if (args.length == 1) {
             output = Output.STDOUT;
             return output;

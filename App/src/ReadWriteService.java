@@ -11,8 +11,13 @@ public class ReadWriteService {
         return InputService.chooseNumbers(input);
     }
 
-    public static List<Integer> readFromFile(String filePath) throws IOException {
-        String input = Files.readString(Paths.get(filePath));
+    public static List<Integer> readFromFile(String filePath) throws AppException {
+        String input = null;
+        try {
+            input = Files.readString(Paths.get(filePath));
+        } catch (IOException e) {
+            throw new AppException("File not found");
+        }
 
         return InputService.chooseNumbers(input);
     }
@@ -21,8 +26,12 @@ public class ReadWriteService {
         System.out.println(numbers);
     }
 
-    public static void writeToFile(List<Integer> numbers, String filePath) throws IOException {
-        Files.writeString(Paths.get(filePath), numbers.toString());
+    public static void writeToFile(List<Integer> numbers, String filePath) throws AppException {
+        try {
+            Files.writeString(Paths.get(filePath), numbers.toString());
+        } catch (IOException e) {
+            throw new AppException("Invalid name of new file");
+        }
     }
 
 

@@ -1,4 +1,4 @@
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +11,7 @@ public class AppService {
         this.output = ArgsValidator.selectOutput(args);
     }
 
-    public void execute(String[] args) throws IOException {
+    public void execute(String[] args) throws AppException {
         List<Integer> numbers = new ArrayList<>();
         if (this.input.equals(Input.STDIN)) {
             numbers = ReadWriteService.readFromStdIn();
