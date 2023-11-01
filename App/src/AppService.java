@@ -6,7 +6,7 @@ public class AppService {
     private final Input input;
     private final Output output;
 
-    public AppService(String[] args) {
+    public AppService(String[] args) throws AppException {
         this.input = ArgsValidator.selectInput(args);
         this.output = ArgsValidator.selectOutput(args);
     }

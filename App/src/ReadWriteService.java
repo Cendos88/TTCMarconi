@@ -12,7 +12,7 @@ public class ReadWriteService {
     }
 
     public static List<Integer> readFromFile(String filePath) throws AppException {
-        String input = null;
+        String input;
         try {
             input = Files.readString(Paths.get(filePath));
         } catch (IOException e) {

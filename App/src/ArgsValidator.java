@@ -1,5 +1,8 @@
 public class ArgsValidator {
-    public static Input selectInput(String[] args) {
+    public static Input selectInput(String[] args) throws AppException {
+        if(args.length==0){
+            throw new AppException("At least one argument is required");
+        }
         Input input = Input.FILE;
         if (args[0].matches("[0-9]+")) {
             input = Input.STDIN;
